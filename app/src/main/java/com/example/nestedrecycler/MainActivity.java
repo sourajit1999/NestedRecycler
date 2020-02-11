@@ -99,4 +99,5 @@ public class MainActivity extends AppCompatActivity implements FirebaseLoadListe
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
         dialog.dismiss();
     }
+
 }

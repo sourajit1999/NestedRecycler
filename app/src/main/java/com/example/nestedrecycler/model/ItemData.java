@@ -10,6 +10,13 @@ public class ItemData {
         this.image = image;
     }
 
+//    public void setImage(int image){
+//        this.image = image;
+//    }
+//        public int getImage() {
+//        return image;
+//    }
+
     public String getName() {
         return name;
     }
@@ -18,7 +25,10 @@ public class ItemData {
         this.name = name;
     }
 
-    private String image,name;
+
+    private String name;
+    private String image;
+//    private int image;
 
 
     public ItemData() {

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements FirebaseLoadListe
         setContentView(R.layout.activity_main);
 
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        databaseReference = FirebaseDatabase.getInstance().getReference("MyData");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Events");
         databaseReference.keepSynced(true);
 
         dialog = new ProgressDialog(MainActivity.this);
@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements FirebaseLoadListe
     public void onFirebaseLoadSuccess(List<ItemGroup> itemGroupList) {
         MyItemGroupAdaper adapter = new MyItemGroupAdaper(this,itemGroupList);
         recyclerView.setAdapter(adapter);
+
+
 
         dialog.dismiss();
     }

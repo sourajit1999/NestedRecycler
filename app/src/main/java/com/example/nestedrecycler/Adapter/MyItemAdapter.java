@@ -1,6 +1,7 @@
 package com.example.nestedrecycler.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nestedrecycler.Interface.ItemClickListener;
+import com.example.nestedrecycler.Main2Activity;
 import com.example.nestedrecycler.R;
 import com.example.nestedrecycler.model.ItemData;
 import com.example.nestedrecycler.model.ItemGroup;
@@ -66,6 +68,10 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onItemClickListener(View view, int position) {
+
+                        Intent intent =new Intent(context, Main2Activity.class);
+                        intent.putExtra("Name",itemDatalist.get(position).getName());
+                        context.startActivity(intent);
                         Toast.makeText(context, itemDatalist.get(position).getName(), Toast.LENGTH_SHORT).show();
                     }
                 });

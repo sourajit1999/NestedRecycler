@@ -6,11 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nestedrecycler.R;
+import com.example.nestedrecycler.model.ItemData;
 import com.example.nestedrecycler.model.ItemGroup;
 
 import java.util.List;
@@ -38,8 +42,23 @@ public class MyItemGroupAdaper extends RecyclerView.Adapter<MyItemGroupAdaper.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
         holder.item_title.setText(datalist.get(position).getHeaderTitle());
+        List<ItemData> itemData = datalist.get(position).getListItem();
+
+        MyItemAdapter itemListAdapter = new MyItemAdapter(context,itemData);
+        holder.recycler_view_item_list.setHasFixedSize(true);
+        holder.recycler_view_item_list.setLayoutManager(new GridLayoutManager(context,2));
+        holder.recycler_view_item_list.setAdapter(itemListAdapter);
+
+        holder.recycler_view_item_list.setNestedScrollingEnabled(true);
+
+        holder.btn_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Button More"+holder.item_title.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

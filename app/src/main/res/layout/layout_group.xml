@@ -2,32 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="5dp">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="2dp">
+        android:padding="2dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/itemTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
-            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:fontFamily="sans-serif-smallcaps"
             android:textColor="#212121"
-            android:paddingStart="10dp"
+            android:paddingStart="0dp"
             android:text="Sample title"/>
         <Button
             android:id="@+id/button_more"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:text="More"
+            android:text="More >"
             android:layout_alignParentEnd="true"
             style="@style/MyButton"
+            android:background="#00ffffff"
             />
     </RelativeLayout>
 
@@ -36,6 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:orientation="horizontal"
+        />
 
 </LinearLayout>
